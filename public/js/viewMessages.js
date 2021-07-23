@@ -1,11 +1,16 @@
 const messageDisplay = document.querySelector('#message');
+const passcodeInput = document.querySelector('#passcode');
 
 const getMessages = () => {
     const messagesRef = firebase.database().ref();
-    messagesRef.on('value', (snapshot) => {
-        const data = snapshot.val();
-        findMessage(data);
+    
+    messagesRef.get().then((snapshot) => {
+        findMessage(snapshot.val());
     });
+    // messagesRef.on('value', (snapshot) => {
+    //     const data = snapshot.val();
+    //     findMessage(data);
+    // });
 }
 
 const findMessage = (messages) => {
@@ -21,7 +26,7 @@ const findMessage = (messages) => {
             return;
         }
     }
-
+    
     alert(`No matching message for the following:\nPassword: ${userGuess}\nHashed: ${passcodeAttempt}`);
 }
 
@@ -33,7 +38,7 @@ function decryptMsg(encMsg, pwd) {
 
 const renderMessageAsHtml = (message) => {
     // Hide Input Form
-    const passcodeInput = document.querySelector('#passcode');
+
     passcodeInput.value = '';
 
     messageDisplay.innerHTML = message;
