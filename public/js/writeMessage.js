@@ -28,9 +28,12 @@ const submitMessage = () => {
     console.log(hashedPasscode);
     console.log(passcodeValue);
 
+    // Encrypt message
+    var encryptedMessage = encryptMsg(msgValue, passcodeValue);
+
     // Submit to firebase
-    firebase.database().ref('test').push({
-        message: msgValue,
+    firebase.database().ref().push({
+        message: encryptedMessage,
         passcode: hashedPasscode
     });
 
@@ -41,4 +44,10 @@ const submitMessage = () => {
 const sendMessageButton = document.querySelector('#button');
 window.onload = () => {
     sendMessageButton.addEventListener('click', submitMessage);
+}
+
+// Secret should be unhashed password
+function encryptMsg(msg, secret) {
+    var encrypted = CryptoJS.AES.encrypt(msg, secret); // Encrypts message with secret (unhashed passcode)
+    return encrypted.toString(); // Returns the encrypted message as a string
 }
