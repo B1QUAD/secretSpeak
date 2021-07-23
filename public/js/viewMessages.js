@@ -17,6 +17,7 @@ const findMessage = (messages) => {
         if (messageData.passcode === passcodeAttempt) {
             console.log(messageData.message);
             renderMessageAsHtml(decryptMsg(messageData.message, userGuess));
+            firebase.database().ref(uKey).remove();
             return;
         }
     }
