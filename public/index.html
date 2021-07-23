@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,50 +14,52 @@
     <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/8.3.1/firebase-database.js"></script>
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-    <script 
-        src="https://cdnjs.cloudflare.com/ajax/libs/jshashes/1.0.8/hashes.min.js" 
-        integrity="sha512-1HyPmPHvi5wFUctYkBhwOYgXmMdbPrDaXKBrbGRI3o1CQkTKazG/RKqR8QwVIjTDOQ3uAOPOFkEbzi99Td6yiQ==" 
-        crossorigin="anonymous" 
-        referrerpolicy="no-referrer">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jshashes/1.0.8/hashes.min.js"
+        integrity="sha512-1HyPmPHvi5wFUctYkBhwOYgXmMdbPrDaXKBrbGRI3o1CQkTKazG/RKqR8QwVIjTDOQ3uAOPOFkEbzi99Td6yiQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-  </head>
+</head>
 
-  <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-menu is-active">
-        <a class="navbar-item" href="viewMessages.html">
-          View Your Messages
-        </a>
-      </div>
-    </nav>
-    <h1 class="title has-text-centered">Secret Messaging App</h1>
+<body>
     <section class="hero is-fullheight">
-      <div class="hero-body has-text-centered">
-        <div class="login">
-          <img src="https://image.freepik.com/free-vector/colorful-speech-bubbles-set_74855-6314.jpg" width="325px" />
-          <form action="javascript:void(0);">
-            <div class="field">
-              <div class="control">
-                <input class="input is-medium is-rounded" type="text" id="passcode" placeholder="Enter a passcode" required />
-              </div>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-menu is-active">
+                <a class="navbar-item" href="viewMessages.html">
+                    View Your Messages
+                </a>
             </div>
-            <div class="field">
-              <div class="control">
-                <textarea class="textarea is-medium is-rounded" type="text" id="message" placeholder="Share a secret message with your friend!" required></textarea>
-              </div>
+        </nav>
+        <h1 class="title has-text-centered">Secret Messaging App</h1>
+        <section class="hero is-fullheight">
+            <div class="hero-body has-text-centered">
+                <div class="login">
+                    <img src="https://image.freepik.com/free-vector/colorful-speech-bubbles-set_74855-6314.jpg"
+                        width="325px" />
+                    <form action="javascript:void(0);">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-medium is-rounded" type="text" id="passcode"
+                                    placeholder="Enter a passcode" required />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <textarea class="textarea is-medium is-rounded" type="text" id="message"
+                                    placeholder="Share a secret message with your friend!" required></textarea>
+                            </div>
+                        </div>
+                        <br />
+                        <button class="button is-block is-fullwidth is-primary is-medium is-rounded" id="button">
+                            Send Message
+                        </button>
+                    </form>
+                    <br>
+                </div>
             </div>
-            <br />
-            <button class="button is-block is-fullwidth is-primary is-medium is-rounded" id="button">
-              Send Message
-            </button>
-          </form>
-          <br>
-        </div>
-      </div>
+        </section>
     </section>
-    
     <script src="js/writeMessage.js"></script>
-  </body>
+</body>
 
 </html>
