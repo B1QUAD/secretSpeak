@@ -21,6 +21,8 @@ const findMessage = (messages) => {
             return;
         }
     }
+
+    alert(`No matching message for the following:\nPassword: ${userGuess}\nHashed: ${passcodeAttempt}`);
 }
 
 // Takes encrypted message and password guess as input
