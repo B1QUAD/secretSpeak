@@ -1,3 +1,5 @@
+const messageDisplay = document.querySelector('#message');
+
 const getMessages = () => {
     const messagesRef = firebase.database().ref();
     messagesRef.on('value', (snapshot) => {
@@ -28,9 +30,8 @@ function decryptMsg(encMsg, pwd) {
 
 const renderMessageAsHtml = (message) => {
     // Hide Input Form
-    const passcodeInput = document.querySelector('#passcodeInput');
-    passcodeInput.style.display = 'none';
-    // Render messageas HTML
-    const messageDiv = document.querySelector('#message');
-    messageDiv.innerHTML = message;
+    const passcodeInput = document.querySelector('#passcode');
+    passcodeInput.value = '';
+
+    messageDisplay.innerHTML = message;
 }
