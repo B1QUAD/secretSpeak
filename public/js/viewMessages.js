@@ -4,15 +4,18 @@ const passcodeInput = document.querySelector('#passcode');
 const getMessages = () => {
     const messagesRef = firebase.database().ref();
     
-    messagesRef.get().then((snapshot) => {
+    messagesRef.once('value').then((snapshot) => {
         findMessage(snapshot.val());
     });
+
+    // This code would create an event that triggered on DB changes --> not good since it calls findMessage
     // messagesRef.on('value', (snapshot) => {
     //     const data = snapshot.val();
     //     findMessage(data);
     // });
 }
 
+// Messages is the 
 const findMessage = (messages) => {
     const userGuess = document.querySelector('#passcode').value;
     const passcodeAttempt = new Hashes.SHA512().hex(userGuess);
